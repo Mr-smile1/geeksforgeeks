@@ -1,0 +1,14 @@
+class Solution {
+    ArrayList<Integer> valueEqualToIndex(int arr[], int n) {
+        
+        ArrayList<Integer> arrlist = new ArrayList<Integer>(n);    
+        //since the return type is an arraylist so we have to create an arraylist and store our ans in it and return it
+        
+        for(int i=0 ; i<n ; i++){
+            if(i+1 == arr[i]){
+                arrlist.add(i+1);
+            }
+        }
+        return arrlist;
+    }
+}
