@@ -1,0 +1,6 @@
+class Solution {
+    int print2largest(int arr[], int n) {
+        Arrays.sort(arr);
+        return arr[n - 2];
+    }
+}
