@@ -4,3 +4,20 @@ class Solution {
         return arr[n - 2];
     }
 }
+
+
+// runs all test cases
+
+class Solution {
+    int print2largest(int arr[], int n) {
+        Arrays.sort(arr);
+        int a = arr[n-1], b = -1; 
+        n = n-1;
+        for(int i = n; i > 0; i--){
+            if(a > arr[i-1]){
+                return arr[i-1];
+            }
+        }   
+        return b;
+    }
+}
