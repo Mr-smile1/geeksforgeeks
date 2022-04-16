@@ -1,0 +1,12 @@
+
+
+class Compute {
+    static pair getMinMax(long a[], long n){            //return type is pair so return pair
+        long max=a[0],min=a[0];
+        for(int i=0;i<n;i++){
+           max=Math.max(max,a[i]);
+           min=Math.min(min,a[i]);
+        }
+        return new pair(min,max);
+    }
+}
