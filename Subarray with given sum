@@ -9,23 +9,24 @@ class Solution
        ArrayList<Integer>list=new ArrayList<Integer>();
        for(i=0;i<n;i++){
            count =arr[i];
-           for(j=i+1;j<=n;j++){
-               if(count==s){
+           for(j=i+1;j<=n;j++){          
+               if(count==s){                         // if count is equal to given number
                    flag++;
                    if(flag==1){
-                       list.add(i+1);
+                       list.add(i+1);                // i+1 as index is zero
                        list.add(j);
                    }
                }
-               if(count > s||n == j){
+               if(count > s||n == j){                // if count > given number or the end of array is reached
                    break;
                }
-               count = count+arr[j];
+               count = count+arr[j];                 // basically added the elements till jth element in whole iteration
            }  
        }
-       if(list.isEmpty()){
-            list.add(-1);
+       if(list.isEmpty()){                           // if(still flag is not equal to zero)
+            list.add(-1);                            // it means no sucha array is possible which make given sum (s)
         }
-       return list;
+       return list;                                  // else return list
    }    
 }
+
