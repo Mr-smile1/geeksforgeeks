@@ -7,19 +7,28 @@ class Solution {
        HashMap<Integer , Integer> hm = new HashMap<>();
        
        for(int i = 0 ; i < n ; i++){
-           if(hm.containsKey(arr[i])){
-               hm.put( arr[i], hm.get(arr[i])+1 );
+           if(hm.containsKey(arr[i])){                     // return true or false
+           // at start the hashmap is empty than with next statement we add value to 
+           // hashmap and than with iterating check if number repeated go to else statement
+               hm.put( arr[i], hm.get(arr[i])+1 );         // store in hashmap(key, value)
            }
            else{
-               hm.put(arr[i] , 1);
-           }
+               hm.put(arr[i] , 1);                         // store in hashmap(key, value)
+           } 
        }
        
        for(int i = 0 ; i < n ; i++){
-           if(hm.get(arr[i]) > 1){
+           if(hm.get(arr[i]) > 1){        // hm.get(0) => key=1 and value = 1 > 1 = false
+                                          // hm.get(1) => key=5 and value = 2 > 1 = true 
+                                          // hm.get(2) => key=3 and value = 2 > 1 = true 
                return i+1;
            }
        }
        return -1;
    }
 }
+
+// hm.containsKey(a) -> returns boolean
+// hm.get(key) -> returns value from key-value pair
+// hm.put(a,b) -> store a,b in hashmap as key and value respectively
+
