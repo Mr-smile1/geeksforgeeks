@@ -1,0 +1,74 @@
+
+
+class Solution {
+   void rearrange(int arr[], int n) {    // creating 2 diff arrays for pos & neg
+       int[] positive=new int[n];
+       int[] negative=new int[n];
+       int pos=0,neg=0,num=0;
+       for(int i=0;i<n;i++){
+           if(arr[i]>=0){
+               positive[pos]=arr[i];
+               pos++;
+           }else{
+               negative[neg]=arr[i];
+               neg++;
+           }
+       }
+       
+       if(pos<neg){
+           num=pos;
+       }else{
+           num=neg;
+       }
+       
+       int count=0,count2=0;
+       for(int i=0;i<num*2;i++){
+           if(i%2==0){                     //at even index store positive numbers
+               arr[i]=positive[count];
+               count++;
+           }else{                          //at even index store positive numbers
+               arr[i]=negative[count2];    
+               count2++;
+           }
+       }
+
+       if(pos<neg){
+       for(int i=num*2;i<n;i++){
+           arr[i]=negative[count2];
+           count2++;
+       }
+       }else{
+           for(int i=num*2;i<n;i++){
+           arr[i]=positive[count];
+           count++;
+       }
+       }
+}}   
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ 
+// it do not maintain the order of array 
+
+class Solution { 
+    void rearrange(int arr[], int n) {
+        int i = -1, temp = 0;
+        for(int j=0;j<n;j++){
+            if(arr[j] < 0){         //for negative numbers put them at start
+                i++;
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        int pos = i+1, neg = 0;    
+        while(pos < n && neg < pos && arr[neg] < 0){
+            temp = arr[neg];
+            arr[neg] = arr[pos];
+            arr[pos] = temp;
+            pos++;
+            neg+=2;
+        }
+    }
+}
