@@ -1,0 +1,32 @@
+
+
+class Solution {
+   
+   public void segregateElements(int arr[], int n){
+       
+       if(arr.length <= 1)
+       return;
+       
+       int start = 0;
+       int end = 0;
+       
+       ArrayList<Integer> list = new ArrayList<>();
+       
+       while(end < arr.length){             // until end is not reached 
+           
+           if(arr[end] > -1){               // if arr[element] is positive 
+               arr[start++] = arr[end];     // store from starting in the array
+           }
+           else
+               list.add(arr[end]);          // add to array list
+           end++;                           
+       }
+       
+       end = 0;
+       
+       while(start < arr.length){           // until end is not reached 
+           arr[start++] = list.get(end++);  // adding negative elements to array
+       }
+       
+   }
+}
