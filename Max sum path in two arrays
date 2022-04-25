@@ -1,0 +1,35 @@
+
+
+class Solution
+{
+    /*You are required to complete this method
+    * ar1 : 1st array
+    * ar2 : 2nd array
+    */
+    int maxPathSum(int A[], int B[])
+    {
+        int l1 = A.length, l2 = B.length;
+        int i=0,j=0,path1=0,path2=0;
+        while(i<l1 && j<l2){                     // till any array's end is reached 
+            if(A[i]<B[j]){                       // A[0] < B[0], path = path + A[1]
+                path1+=A[i++];
+            }
+            else if(A[i]>B[j]){                  // A[0] > B[0], path = path + B[1]
+                path2+=B[j++];
+            }
+            else{                                // when common element is found at same index
+                path1+=A[i++];
+                path2+=B[j++];
+                path1=Math.max(path1,path2);          // get the greater of both
+                path2=Math.max(path1,path2);          // get the greater of both
+            }
+        }
+        while(i<l1){                             // if the array A end is not reached
+            path1+=A[i++];
+        }
+        while(j<l2){                             // if the array B end is not reached
+            path2+=B[j++];
+        }
+        return Math.max(path1,path2);
+    }
+}
