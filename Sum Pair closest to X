@@ -46,7 +46,10 @@ int[] sumClosest(int[] arr, int x) {
    class Solution {
     int[] sumClosest(int[] arr, int x) {
         int[] ans=new int[2];
-        int low=0,high=arr.length-1,diff=Integer.MAX_VALUE;
+        int low=0;
+        int high=arr.length-1;
+        int diff=Integer.MAX_VALUE;
+        
         while(low<high){
             int temp=x-(arr[low]+arr[high]);
             if(diff>Math.abs(temp)){
@@ -54,15 +57,23 @@ int[] sumClosest(int[] arr, int x) {
                 ans[1]=arr[high];
                 diff=Math.abs(temp);
             }
-            if(temp==0)
+            if(temp==0){
                 break;
-            if(temp>0)
+            }
+            if(temp>0){
                 low++;
-            if(temp<0)
+            }
+            if(temp<0){
                 high--;
+            }
         }
         return ans;
     }
 }
    
    
+// got an array, got 2 pointers low and high we check if arr[low]+arr[high] - sum to be found is present in array 
+// if yes, store the diff 
+// it will iterate till low and high becomes equal, and store the low and high value in array whose arr[low]+arr[high] - sum is minimum.
+
+
