@@ -26,3 +26,7 @@ class Check{
 }
 
 
+// we check weather if element is already present in map 
+// if not store it in map with number as key and initizing its value as 1
+// if during iteration the same number is encountered, the key will be same but the value will be increase by 1
+// at end we check if a number have value = 1 and return its key, as it is the Non-Repeating number 
