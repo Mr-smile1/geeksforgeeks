@@ -1,0 +1,53 @@
+
+
+class Solution {
+    int getMinDiff(int[] arr, int n, int k) {
+        Arrays.sort(arr);
+        int diff = arr[n-1] - arr[0];             // get diff
+        int max,min;
+        for(int i = 1;i<n;i++){
+            if(arr[i]-k < 0){                     // if number in array is less than given number
+                 continue;
+            }
+            max = Math.max(arr[i-1]+k,arr[n-1]-k);  // check from 0th to (n-1)th position
+            min = Math.min(arr[0]+k,arr[i]-k);    
+            diff = Math.min(diff,max-min);
+        }
+        return diff;
+    }
+}
+
+
+// first we sort the array
+// than store the diff bw max and min
+// than we iterate through the array to find max and min number and apply +k & -k on min an dmax value of array 
+// than we get the diff and return it
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////
+
+
+//wrong as there can be any number in array which after adding or subtracting with k can be bigger or smaller than min & max
+
+class Solution {
+    int getMinDiff(int[] arr, int n, int k) {
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        for(int i=0;i<n;i++){
+            min = Math.min(min, arr[i]);
+            max = Math.max(max, arr[i]);
+        }
+        
+        min += k;
+        max -= k;
+        
+        int temp = Math.abs(max-min);
+        return temp;
+    }
+}
+
+
+
