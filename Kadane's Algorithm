@@ -1,0 +1,22 @@
+
+
+class Solution{
+
+    // arr: input array
+    // n: size of array
+    //Function to find the sum of contiguous subarray with maximum sum.
+    long maxSubarraySum(int arr[], int n){
+       long maxSum=Integer.MIN_VALUE;     // min value = -100000000
+       long currSum = 0;                  // current sum
+       for (int i=0; i<n; i++){
+           currSum += arr[i];             // add every value of array to currsum
+               if(currSum>maxSum)         // if it is greater make it maxsum
+                   maxSum=currSum;       
+               if(currSum<0)              // if negative number is encountered
+                   currSum=0;             // make currsum = 0;
+       }
+       return maxSum;                     // return max contiguous sub-array
+   }
+}
+
+
