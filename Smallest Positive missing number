@@ -27,3 +27,74 @@ space : (1)
 
 
 //////////////////////////////////////////////////////////////////////////////////
+
+//https://www.youtube.com/watch?v=-lfHWWMmXXM
+
+class Solution
+{
+    //Function to find the smallest positive number missing from the array.
+    static int missingNumber(int arr[], int n){
+        int correctpos;
+        for(int i=0;i<n;i++){
+            correctpos=arr[i]-1;
+            while(arr[i]>=1 && arr[i]<=n && arr[i]!=arr[correctpos]){
+                int temp = arr[i];
+                arr[i] = arr[correctpos];
+                arr[correctpos] = temp;
+                
+                correctpos = arr[i]-1;
+            }
+        }
+        
+        for(int i=0;i<n;i++){
+            if(i+1 != arr[i]){
+                return i+1;
+            }
+        }
+        
+        return n+1;
+    }
+}
+
+
+
+time : O(n) 
+
+space : (1)
+
+
+///////////////////////////////////////////////////////////////////////////////////
+
+
+class Solution
+{
+    //Function to find the smallest positive number missing from the array.
+    static int missingNumber(int arr[], int n)
+    {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int count=0;
+        
+        for(int i=0;i<n;i++){
+            if(map.containsKey(arr[i])){
+                map.put(arr[i], map.get(arr[i])+1);
+            }
+            else{
+                map.put(arr[i], 1);
+            }
+            
+            
+            if(map.get(arr[i])==0){
+                return arr[i];
+            }
+            
+        }
+        
+        return ???;
+    }
+}
+
+
+
+// do not work as i dont know what should be return if there is no smaller between the array and so the final ans will be next element which will come
+
+
