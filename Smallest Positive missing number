@@ -21,5 +21,9 @@ class Solution
 // so we go through whole array to find weather the smallest +ive element is between array elements and if not we return the next element whcih will come in array
 
 
+time : O(nlogn) 
+
+space : (1)
+
 
 //////////////////////////////////////////////////////////////////////////////////
