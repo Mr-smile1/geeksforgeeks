@@ -28,3 +28,42 @@ class Solution {
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////
+
+
+
+class Solution {
+    // Function to find maximum product subarray
+    long maxProduct(int[] arr, int n) {
+        long max=arr[0];
+        long min=arr[0];
+        long res=arr[0];
+        for(int i=1;i<n;i++){
+            if(arr[i]==0){     // if zero is encountered in the array it whole sub array product will be zero, so we made a type of barrer or a condition to get the ans
+                max=1;         // again initilized as 1 as 0 is encountered
+                min=1;
+                continue;      // after that whole loop is skipped as nothing to be done further
+            }
+            long temp1=arr[i]*max;
+            long temp2=arr[i]*min;
+            max=Math.max(temp1,temp2);
+            max=Math.max(arr[i],max);
+            min=Math.min(temp1,temp2);
+            min=Math.min(arr[i],min);
+            res=Math.max(res,max);
+        }
+        return res;
+    }
+}
+
+
+// first we check if there is zero in array, as anything multiply by zero is zero
+// now since we also have negative number in array, due to maths:
+// + * + = +
+// - * + = -
+// - * - = -
+// so have max & min to check if current value * min 
+                        //          -18    *    -10   = 180
+
+
+
