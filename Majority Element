@@ -1,0 +1,27 @@
+
+
+
+class Solution
+{
+    static int majorityElement(int arr[], int size)
+    {
+        int n = size;
+        HashMap<Integer,Integer> map = new HashMap<> ();
+        
+        for(int i=0;i<n;i++){
+            if(map.containsKey(arr[i])){
+                map.put(arr[i],map.get(arr[i])+1);
+            }
+            else{
+                map.put(arr[i],1);
+            }
+            // i have stored all elements in map with their frequency as the value and element as key
+
+            
+            if(map.get(arr[i]) > n/2){
+                return arr[i];
+            }
+        }
+        return -1;
+    }
+}
