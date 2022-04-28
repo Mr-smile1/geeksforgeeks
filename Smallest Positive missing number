@@ -1,0 +1,25 @@
+
+
+class Solution
+{
+    //Function to find the smallest positive number missing from the array.
+    static int missingNumber(int arr[], int size)
+    { 
+        int n=size;                // {0,-10,1,3,-20}
+        Arrays.sort(arr);          // {-20,-10,0,1,3}
+        int min=1;
+        for(int i=0;i<n;i++){      // go through whole array
+            if(arr[i]==min){       // if any element is array == min;
+                min++;
+            }
+        }
+        return min;
+    }
+}
+
+
+// so we go through whole array to find weather the smallest +ive element is between array elements and if not we return the next element whcih will come in array
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
