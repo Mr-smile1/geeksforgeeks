@@ -38,15 +38,17 @@ class Solution
         for(int i=0;i<n;i++){
             correctpos=arr[i]-1;
             while(arr[i]>=1 && arr[i]<=n && arr[i]!=arr[correctpos]){
+            // check if element is b/w 1&n and its should not be equal to same index 
+            // if yes, swap
                 int temp = arr[i];
                 arr[i] = arr[correctpos];
                 arr[correctpos] = temp;
                 
-                correctpos = arr[i]-1;
+                correctpos = arr[i]-1;                   // after swap we go back to prev element to check for that too
             }
         }
         
-        for(int i=0;i<n;i++){
+        for(int i=0;i<n;i++){                // if the element is not present in the array so we get the next element to last element as the smallest missing element
             if(i+1 != arr[i]){
                 return i+1;
             }
