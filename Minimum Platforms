@@ -1,0 +1,36 @@
+
+
+
+
+class Solution
+{
+    //Function to find the minimum number of platforms required at the
+    //railway station such that no train waits.
+    static int findPlatform(int arr[], int dep[], int n)
+    {
+        Arrays.sort(arr);
+        Arrays.sort(dep);
+        int i=1;
+        int j=0;
+        int platform_no=1;              // min 1 platform is required
+        while(i<n){
+            if(arr[i] <= dep[j]){       // arrival is less than departure i.e. train arrives after the departure
+                platform_no++;                
+            }
+            else{
+                j++;
+            }
+            i++;
+        }
+        return platform_no;
+    }
+}
+
+
+// logic is that if the train arrives at some time,so if the previous train deprature time is greater than 
+// arrival time of other train, increase the platform number(i.e. if next train comes before prev train left)
+// 
+// else go to next trains departure time and check for it.
+// finally return the number of platforms req
+
+
