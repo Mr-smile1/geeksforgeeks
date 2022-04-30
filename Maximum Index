@@ -26,3 +26,10 @@ class Solution{
 }
 
 
+// start a pointer from start and end
+// run it till both meets
+// for every iteration check arr[i]<=arr[j]
+// if yes, find diff between j & i (index) and find & store there diff in variable
+// else, reduce from end side
+// at end will have our max distance stored in maxdiff.
+
