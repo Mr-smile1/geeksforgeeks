@@ -12,7 +12,7 @@ class Solution{
         while(i<n){                              // start from index 1
             int flag = 1;                        
             int idx = i;
-    
+            k = new ArrayList<>();               // a new arraylist will be made everytime
             if(A[i]>A[i-1]){                     // element is greater than prev element
                 idx = i-1;                       // index = prev element
                 flag = 0;
@@ -20,17 +20,24 @@ class Solution{
                     i++;
                 }
             }
-            if(flag==0){
+            if(flag==0){             // when we have found some element greater than prev element
                 k.add(idx);
                 k.add(i-1);
                 f.add(k);
             }
-            if(flag==1){
-            i++;
+            if(flag==1){             // when element is smaller than orevious element
+                i++;
             }
         }
         return f;
     }
 }
+
+
+// basic consept of buying and selling in stock market is buy at low and sell at high.
+
+// we take first element of array and store it in index and than find the next element which will be greatest than that element
+// if we found that we will store the first element and where the loop is currently - 1 element (index 0) and store them both in arraylist
+// now store arraylist in another arraylist as we have to return arraylist of arraylist, with all solutions possible.
 
 
