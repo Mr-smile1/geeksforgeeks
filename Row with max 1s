@@ -1,0 +1,80 @@
+
+
+class Solution {
+   int rowWithMax1s(int arr[][], int n, int m) {
+        int index=-1;
+        int row=0;
+        
+        for(int i=m-1;i>=0;i--){
+            if(arr[row][i]==1){
+                index=row;          // row with highest number of 1's
+            }
+            else{
+                if(row<n-1){        // until last row is reached
+                    row++;          // go to next row 
+                    i++;            // also check if prev i is 1 or not
+                }
+            }
+        }
+        return index;
+    }
+}
+
+// Arr[][] = {{0, 1, 1, 1},
+//            {0, 0, 1, 1},
+//            {1, 1, 1, 1},
+//            {0, 0, 0, 0}}
+
+// if row = 0 & col = 3(4-1) == 1   // if last element of row is 1
+// index = row = 0
+// if row = 0 & col = 2(3-1) == 1   // if last element of row is 1
+// index = row = 0
+// if row = 0 & col = 1(2-1) == 1   // if last element of row is 1
+// index = row = 0
+// if row = 0 & col = 0(1-1) != 1   // if last element of row is 1
+// row++; i.e., row = 1
+// i++; i.e., i = col = 1;
+// check for 1st row
+// check for 2nd row
+// here, since row < 3(4-1), is false
+// break the loof and return the index
+
+
+
+
+time : O(n+m)
+
+space: O(1)
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+class Solution {
+    int rowWithMax1s(int arr[][], int n, int m) {
+        
+        int col=m-1;
+        int row=-1;
+        
+        for(int i=0;i<n;i++){
+            for(int j=col;j>=0;j--){
+                if(arr[i][j]==1){
+                    row=i;
+                    col--;
+                }
+                else{
+                    break;
+                }
+            }
+        }
+        return row;
+    }
+}
+
+
+time : O(log(n+m))
+
+space: O(1)
+
+
