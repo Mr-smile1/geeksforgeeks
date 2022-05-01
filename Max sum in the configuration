@@ -35,3 +35,43 @@ class GfG
 // res = max(11,29)
 // return res
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\
+
+
+class GfG
+{
+    int max_sum(int arr[], int n)
+    {
+    	int max = 0;
+       int sum = 0;
+       for (int i = 0; i < arr.length; i++) {
+
+           sum = sum + (arr[i] * i);
+       }
+       if (max < sum) {
+           max = sum;
+       }
+       for (int i = 0 ; i< arr.length-1;i++){
+            sum = 0;
+           rotate(arr);
+           for (int j = 0; j< arr.length; j++) {
+               sum = sum + (arr[j] * j);
+           }
+           if (max < sum) {
+               max = sum;
+           }
+       }
+
+       return max;
+    }	
+    static void rotate(int [] arr){
+       int last = arr[arr.length - 1];
+       for (int i = arr.length - 1; i > 0; i--) {
+           arr[i] = arr[i - 1];
+       }
+       arr[0] = last;
+   }
+}
+
+
