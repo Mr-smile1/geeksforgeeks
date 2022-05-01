@@ -23,3 +23,9 @@ class Solution {
 // 1+=1 = 2
 // if (2<3), true
 // return 2
+
+
+// logic : if the array is sorted, the smallest +ive number will be one
+// if not check for 2
+// and if 2 is not present is array there is no way a sum can be 2 without 1+1.
+
