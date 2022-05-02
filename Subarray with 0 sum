@@ -1,0 +1,37 @@
+
+
+
+class Solution{
+    //Function to check whether there is a subarray present with 0-sum or not.
+    static boolean findsum(int arr[],int n)
+    {
+       //Here concept is if sum + arr[i] == sum  
+       // It means the value of arr[i] ==0;
+       // Means subarrays with zero sum is present
+       int sum = 0;
+       HashSet<Integer> has = new HashSet<>();
+       for(int i=0;i<n;i++){
+           sum += arr[i];
+           if(sum==0){
+               return true;
+           }
+           else if(has.contains(sum)){
+               return true;
+           }
+           else{
+               has.add(sum);
+           }
+       }
+       return false;
+    }
+}
+
+
+// if sum of an element is repeated again the array 
+// means element + & - something will again make some element
+// i.e., 4 + 2 -3 + 1 + 6 = 4 - 4 + 6
+//
+// or
+//
+// if we get a zero while adding the elements
+
