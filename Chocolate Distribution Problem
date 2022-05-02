@@ -20,3 +20,12 @@ class Solution
 }
 
 
+// question : if there are n number of toffee packets containing different number of toffees
+// so we have to distribite this to m number of children
+
+// answer : we sort the array as we have to find the min distance b/w the max and min number of toffee a child get
+// now we check if, toffee received by first child & mth+1 child's toffee difference is min
+// and this will be stored 
+// hence if we iterate we will get the difference b/w max & min number of toffee given 
+
+
