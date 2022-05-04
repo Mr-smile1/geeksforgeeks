@@ -15,7 +15,7 @@ class Solution{
            if(sum==0){
                return true;
            }
-           else if(has.contains(sum)){
+           else if(has.contains(sum)){         // if same number comes in hashset, it means from that after that number there are some numbers whose sum = 0
                return true;
            }
            else{
