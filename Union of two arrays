@@ -15,3 +15,5 @@ class Solution{
     }
 }
 
+
+// hashset property is that it only store unique value in it
