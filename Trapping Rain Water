@@ -21,6 +21,14 @@ class Solution{
    } 
 }
 
+
+// find the max left and max right, for every iteration of the array
+// and store it in 2 arrays left and right
+// after that compare left and right height and their min will be the point till where water will be filled
+// but we will also have to subtract the height of the current position/tower.
+
+
+
 time  : O(n)
 space : O(n)
 
