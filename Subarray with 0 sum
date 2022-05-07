@@ -35,3 +35,33 @@ class Solution{
 //
 // if we get a zero while adding the elements
 
+
+ 
+ 
+ time : O(n)
+ Space: O(n)
+ 
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+brute force: for all sum of all subarrays
+
+for(int i=0;i<n;i++){
+int sum=0;
+    for(int j=i;j<n;j++){
+        sum+=arr[j];
+        System.out.println(sum);
+     }
+ }
+ 
+ 
+ time : O(n^2)
+ Space: O(1)
+ 
