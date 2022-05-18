@@ -78,16 +78,16 @@ class Solution
             cursum += arr[i];
             
             if(cursum == s){
-                start = 0;
-                end = i;
+                start = 0+1;
+                end = i+1;
                 list.add(start);
                 list.add(end);
                 break;
             }
             
             if(map.containsKey(cursum - s)){
-                start = map.get(cursum - s) + 1;
-                end = i;
+                start = map.get(cursum - s) + 2;
+                end = i+1;
                 list.add(start);
                 list.add(end);
                 break;
@@ -95,7 +95,7 @@ class Solution
             
             map.put(cursum, i);
         }
-        if(list.isEmpty()){
+        if(end == -1){
             list.add(-1);
         }
         return list;
@@ -103,6 +103,8 @@ class Solution
 }
 
 
+time : O(n)
+space : O(n)
 
 
 
